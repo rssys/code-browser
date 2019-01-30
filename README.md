@@ -71,7 +71,7 @@ Once inside the editor the user can use the `ctags` functions to follow the code
 
 ## Demo
 
-[![asciicast](https://asciinema.org/a/oNgGs3dNE6vIQPQ6fPkZrLwDL.svg)](https://asciinema.org/a/oNgGs3dNE6vIQPQ6fPkZrLwDL?autoplay=1&speed=3&loop=1)
+[![asciicast](https://asciinema.org/a/oNgGs3dNE6vIQPQ6fPkZrLwDL.svg)](https://asciinema.org/a/oNgGs3dNE6vIQPQ6fPkZrLwDL?autoplay=1&speed=2&loop=1)
 
 ## References
 
