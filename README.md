@@ -69,6 +69,10 @@ Running `gg` instead of `g` will repeatedly loop between the search window and t
 
 Once inside the editor the user can use the `ctags` functions to follow the code path. For instance, in vim, with the default configuration, `Ctrl+]` follows a function/symbol and `Ctrl+T` goes back.
 
+## Demo
+
+[![asciicast](https://asciinema.org/a/oNgGs3dNE6vIQPQ6fPkZrLwDL.svg)](https://asciinema.org/a/oNgGs3dNE6vIQPQ6fPkZrLwDL)
+
 ## References
 
 - Tools:
