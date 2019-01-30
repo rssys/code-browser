@@ -1,42 +1,27 @@
 # Pedro Fonseca, 2018
 #
 # Script to navigate code quickly
-# Requires fzf installed
+# Requirements: fzf 
+# https://github.com/rssys/code-browser
 
 
 # Use highlight instead of cat if available
 mycat() {
     if hash highlight 2>/dev/null; then
         echo "highlight -O ansi"
-        #echo "highlight -O ansi --syntax=c"
     else
         echo "cat"
     fi
 }
 
 
-# Find the first instance of a file ($1) going up the directory tree
-find_file_up(){
-	FILENAME="$1"
-	x=`pwd`
-	while [ "$x" != "/" ] ; do
-		FOUND=$(find "$x" -maxdepth 1 -name ${FILENAME})
-		if [ "$FOUND" != "" ]
-		then
-			echo "$FOUND"
-			return 
-		fi
-		x=`dirname "$x"`
-	done
-	
-}
-
 # Edit a file using vim on a given line number
 editline() { 
+	EDITOR=${EDITOR-vim}
 	if [ "$1" != "" ]
 	then
-		VIM_ARGS=$(echo "$1" | sed -e 's/\([^:]*\):\([^:]*\).*/\1 +\2/')
-		vim $VIM_ARGS
+		EDITOR_ARGS=$(echo "$1" | sed -e 's/\([^:]*\):\([^:]*\).*/\1 +\2/')
+		${EDITOR} $EDITOR_ARGS
 	fi
 }
 
@@ -52,7 +37,7 @@ g(){
 	fi
 	COLOR="--color=hl:124"
 	CAT_COMMAND=$(mycat)
-	MATCH=$(cat GREP_ALL.txt | grep '\t' | sed -e "s/\([: ]\)$(printf '\t')/\1        /" | fzf --ansi --print-query $COLOR --reverse -n 2.. -e +s -d ":" $QUERY --preview "${CAT_COMMAND} {1} |head -100 ")
+	MATCH=$(cat INDEX.txt | grep '\t' | sed -e "s/\([: ]\)$(printf '\t')/\1        /" | fzf --ansi --print-query $COLOR --reverse -n 2.. -e +s -d ":" $QUERY --preview "${CAT_COMMAND} {1} |head -100 ")
 	MATCH_QUERY=$(echo "$MATCH" | head -n 1)
 	MATCH_SELECTION=$(echo "$MATCH" | tail -n 1)
 	editline "$MATCH_SELECTION"
@@ -71,7 +56,7 @@ gg(){
 	do
 		COLOR="--color=hl:124"
 		CAT_COMMAND=$(mycat)
-		MATCH=$(cat GREP_ALL.txt | grep '\t' | sed -e "s/\([: ]\)$(printf '\t')/\1        /" | fzf --ansi --print-query $COLOR --reverse -n 2.. -e +s -d ":" $QUERY --preview "${CAT_COMMAND} {1} |head -100 ")
+		MATCH=$(cat INDEX.txt | grep '\t' | sed -e "s/\([: ]\)$(printf '\t')/\1        /" | fzf --ansi --print-query $COLOR --reverse -n 2.. -e +s -d ":" $QUERY --preview "${CAT_COMMAND} {1} |head -100 ")
 		QUERY="-q $(echo "$MATCH" | head -n 1)"
 		MATCH_SELECTION=$(echo "$MATCH" | tail -n 1)
 		if [ $(echo "$MATCH" | wc -l) -ne 2 ]

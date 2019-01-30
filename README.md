@@ -18,7 +18,7 @@ Installation steps:
 
 ### Install the required packages
 
-Nav-code only **requires** the ``fzf`` fuzzy search tool and an editor.
+Code-browser only **requires** the ``fzf`` fuzzy search tool and an editor.
 
 The current version supports  ``vim`` and the ``emacs`` editor. It is recommend to use it with ``highlight`` and more importantly ``ctags`` (or similar code navigation tool).  
 
@@ -31,7 +31,7 @@ Installation under OS X using the ``brew`` package manager:
 
 ### Install the script
 
-In bash execute from the shell (assuming ``nav-code.bash`` file is in the current directory):
+In bash execute from the shell (assuming ``code-browser.bash`` file is in the current directory):
 
 
     $ git clone git@github.com:rssys/code-browser.git
@@ -63,11 +63,11 @@ Note: it may also be necessary to tell the editor how to find the tags file. E.g
 
 ## Usage
 
-After installing the package, run the shell command `g` with an optional initial query argument. Make sure to run the command from the directory where the `INDEX.txt` file was created or one of its sub-directories.
+After installing the package, run the shell command `g` with an optional initial query argument. Make sure to run the command from the directory where the `INDEX.txt` file was created.
 
-Running `gg` instead of `g` will repeatedly loop between the search window and the editor. Exit with "Ctrl+C".
+Running `gg` instead of `g` will repeatedly loop between the search window and the editor. Exit with "Ctrl+C" or the respective editor command.
 
-Once inside the editor the user can use the `ctags` functions to follow the code path. For instance, in vim under the standard configuration, `Ctrl+]` follows a function/symbol and `Ctrl+T` goes back.
+Once inside the editor the user can use the `ctags` functions to follow the code path. For instance, in vim, with the default configuration, `Ctrl+]` follows a function/symbol and `Ctrl+T` goes back.
 
 ## References
 
