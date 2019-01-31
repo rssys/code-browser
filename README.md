@@ -36,7 +36,7 @@ In bash execute from the shell (assuming ``code-browser.bash`` file is in the cu
 
     $ git clone git@github.com:rssys/code-browser.git
     $ cd code-browser
-    $ source code-browser.bash
+    $ source ./code-browser.bash
 
 To make this change permanent add this source command to your ``~/.bashrc`` file and specify the full path of the ``code-browser.bash`` file.
 
@@ -48,16 +48,13 @@ This tool requires the generation of an index file (``INDEX.txt``). The index fi
 To generate both files:
 
  1. `cd` to the root of the source tree you want to browse
- 2. Generate the `INDEX.txt` file using `grep`:
+ 2. Generate the `INDEX.txt` and `tags` files using the `generate.sh` script:
 
-        $ grep -r . <src_dir> > INDEX.txt
+        $ <code-browser directory>/generate.sh <src_dir>
 
-    (Replace <src_dir> with the names of the subdirectories and/or files to be included but don't include any old index or tag file.)
- 3. Generate the tags file:
+    (Replace *<src_dir>* with the names of the subdirectories and/or files to be included but don't include any old index or tag file.)
 
-        $ /usr/local/bin/ctags -R .
-
-At the end of this process, there should be two files `tags` and `INDEX.txt` in the root directory of the source tree. Both files need to be updated when the source code changes by re-running the generation commands. Include these commands in the Makefile to make it automatic.
+At the end of this process, there should be two files `tags` and `INDEX.txt` in the root directory of the source tree. Both files need to be updated when the source code changes by re-running the generation command. Include this command in the Makefile to make it automatic.
 
 Note: it may also be necessary to tell the editor how to find the tags file. E.g., for vim it may be necessary to add to `~/.virmc` the command: `set tags=./TAGS;/,TAGS;/,./tags;/,tags;/`
 
