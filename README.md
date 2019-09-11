@@ -26,7 +26,7 @@ Installation under OS X using the ``brew`` package manager:
  - Install `brew` (https://brew.sh/)
  - Run the command:
 
-       $ brew install fzf hightlight ctags
+       $ brew install fzf highlight ctags
 
 
 ### Install the script
@@ -34,7 +34,7 @@ Installation under OS X using the ``brew`` package manager:
 In bash execute from the shell (assuming ``code-browser.bash`` file is in the current directory):
 
 
-    $ git clone git@github.com:rssys/code-browser.git
+    $ git clone https://github.com/rssys/code-browser.git
     $ cd code-browser
     $ source ./code-browser.bash
 
