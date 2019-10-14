@@ -39,7 +39,7 @@ In bash execute from the shell (assuming ``code-browser.bash`` file is in the cu
     $ source ./code-browser.bash
 
 To make this change permanent add this source command to your ``~/.bashrc`` file and specify the full path of the ``code-browser.bash`` file.
-
+If Alias 'g' or 'gg' is already occupied, change the function's name to other one in the script.
 
 ### Generate the index and tags
 

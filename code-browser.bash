@@ -29,7 +29,7 @@ editline() {
 
 # Calls fzf to grep the code and then runs vim 
 # Receives one optional argument (the initial query)
-g(){
+function g(){
 	QUERY=""
 	if [ $# -gt 0 ] 
 	then
@@ -45,7 +45,7 @@ g(){
 
 # Repeatedly calls fzf and vim
 # Receives one optional arguemnt (the initial query)
-gg(){
+function gg(){
 	QUERY=""
 	if [ $# -gt 0 ] 
 	then
